@@ -1,5 +1,7 @@
-def decode_message( s: str, p: str) -> bool:
+import re
 
-# write your code here
-  
-        return False
+def decode_message(s: str, p: str) -> bool:
+    p = p.replace('?', '.')
+    p = p.replace('*', '.*')
+    regex = f"^{p}$"
+    return bool(re.match(regex, s))
